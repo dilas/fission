@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container" data-th-fragment="content">
+    <h3 data-th-text="${labelForm}">Mensagem</h3>
+    <br/>
+    <form class="form-horizontal" role="form" data-th-action="${action}" data-th-object="${message}" method="post">
+        <ul data-th-if="${#fields.hasErrors('*')}">
+            <li data-th-each="e : ${#fields.detailedErrors()}" data-th-text="${e.fieldName + ' ' + e.message}" class="text-danger">Erro ao salvar dados</li>
+        </ul>
+
+        <br/>
+
+        <input type="hidden" data-th-field="*{id}" />
+
+        <div class="form-group" data-th-classappend="${#fields.hasErrors('feed')}? has-error">
+            <label for="inputmessageFeed" class="col-sm-2 control-label">Feed</label>
+            <div class="col-sm-4">
+                <select id="inputmessageFeed" class="form-control" data-th-field="*{feed.id}">
+                    <option data-th-each="feed : ${feedList}"
+                            data-th-value="${feed.id}"
+                            data-th-text="${feed.name}">Selecione</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" data-th-classappend="${#fields.hasErrors('title')}? has-error">
+            <label for="inputmessageTitulo" class="col-sm-2 control-label">T&iacute;tulo</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputmessageTitulo" placeholder="T&iacute;tulo da Mensagem" data-th-field="*{title}"/>
+            </div>
+        </div>
+
+        <div class="form-group" data-th-classappend="${#fields.hasErrors('body')}? has-error">
+            <label for="inputmessageMensagem" class="col-sm-2 control-label">Mensagem</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" id="inputmessageMensagem" placeholder="Mensagem" data-th-field="*{body}" rows="8"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a class="btn btn-default" href="#" data-th-href="@{/message}">Cancelar</a>
+            </div>
+        </div>
+    </form>
+
+    <script data-th-src="@{/static/js/tinymce/tinymce.js}" src="static/js/tinymce.js"></script>
+    <script data-th-src="@{/static/js/tinymce/plugins/code/plugin.js}" src="static/js/tinymce/plugins/code/plugin.js"></script>
+    <script>
+        tinymce.init({
+            plugins: "code",
+            width: 580,
+            selector: "textarea",
+            menubar: false,
+            toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code"
+        });
+    </script>
+</div>
+</body>
+</html>
