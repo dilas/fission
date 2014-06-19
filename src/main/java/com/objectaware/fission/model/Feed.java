@@ -42,7 +42,7 @@ public class Feed implements Serializable {
     @ManyToMany(mappedBy = "feeds")
     private List<Feed> groupFeeds;
 
-    @OneToMany(mappedBy = "feed")
+    @OneToMany(mappedBy = "feed", cascade = CascadeType.REMOVE)
     private List<Message> messages;
 
     @Transient
