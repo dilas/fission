@@ -50,7 +50,7 @@
                 <button type="button" class="btn btn-default">Gerar Token</button>
             </p>
         </div>
-        <div class="form-group" data-th-if="*{feedType.id} == 2">
+        <div class="form-group" data-th-if="*{feedType} == 2">
             <div class="col-sm-offset-2 col-sm-10">
                 <a class="btn btn-default" href="#" data-th-href="@{/feed/{feed.id}/group(feed.id=*{id})}">Grupo de Feeds</a>
             </div>
