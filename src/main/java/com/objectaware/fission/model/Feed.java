@@ -19,7 +19,7 @@ public class Feed implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private Integer feedType;
+    private Integer feedType = 1;
 
     @NotEmpty
     private String name;
