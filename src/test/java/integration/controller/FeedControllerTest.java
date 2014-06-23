@@ -1,8 +1,10 @@
-package controller;
+package integration.controller;
 
 import config.FissionTestConfig;
+import ext.IntegrationTest;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -24,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @ContextConfiguration(classes = FissionTestConfig.class)
 @TransactionConfiguration(defaultRollback = true)
+@Category(IntegrationTest.class)
 public class FeedControllerTest {
     @Autowired
     private WebApplicationContext wac;
