@@ -18,7 +18,7 @@
                         <tr data-th-each="message : ${messageList}">
                             <td data-th-text="${message.id}">1</td>
                             <td><a href="#" data-th-href="@{/message/{message.id}(message.id=${message.id})}" data-th-text="${message.title}">T&iacute;tulo</a></td>
-                            <td data-th-text="${message.feed.name}">Feed</td>
+                            <td><a href="#" data-th-href="@{/feed/{feed.id}/messages(feed.id=${message.feed.identifier})}" data-th-text="${message.feed.name}">Feed</a></td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/message/edit/{message.id}(message.id=${message.id})}">Alterar</a>
                                 <a href="#" class="btn btn-xs btn-danger removeLink" data-th-attr="data-remove-id=${message.id}, data-remove-uri=@{/message}">Apagar</a>

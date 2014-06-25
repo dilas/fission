@@ -8,10 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -96,6 +98,14 @@ public class FeedController {
         feedService.updateGroup(groupFeed, feedList);
 
         return "redirect:/feed/" + feed.getId();
+    }
+
+    @RequestMapping("/{identifier}/messages")
+    public String messageList(@PathVariable String identifier, ModelMap model) {
+        Feed feed = feedService.findByIdentifier(identifier);
+        model.addAttribute("feed", feed);
+        model.addAttribute("messageList", feed.getMessages());
+        return "feed/messageList";
     }
 
     private void populateViewModel(ModelMap model, Long id) {
