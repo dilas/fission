@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-<title>Fission</title>
-<link rel="stylesheet" th:href="@{/static/css/bootstrap.css}"
-  href="static/css/bootstrap.css" />
-<script th:src="@{/static/js/bootstrap.js}" src="static/js/bootstrap.js"></script>
-</head>
 <body>
-  <div th:replace="template/header :: header"></div>
-
-  <div class="jumbotron">
-    <h1>Feeds</h1>
-    <p>Selecione o menu para cadastrar novos feeds ou agrupar feeds
-      existentes.</p>
-    <p>
-      <a class="btn btn-primary btn-large" href="#">Saiba mais</a>
-    </p>
-  </div>
+<div class="container" data-th-fragment="content">
+    <div class="row clearfix">
+        <h1>Gerenciador de Feeds</h1>
+    </div>
+</div>
 </body>
 </html>
