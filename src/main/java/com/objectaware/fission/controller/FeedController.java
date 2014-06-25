@@ -91,12 +91,7 @@ public class FeedController {
     public String updateGroup(Feed feed) {
         Feed groupFeed = feedService.find(feed.getId());
 
-        List<Feed> feedList = new ArrayList<Feed>();
-
-        for (Long selectedId : feed.getSelectedFeeds()) {
-            Feed childFeed = feedService.find(selectedId);
-            feedList.add(childFeed);
-        }
+        List<Feed> feedList = feedService.findByIdIn(feed.getSelectedFeeds());
 
         feedService.updateGroup(groupFeed, feedList);
 

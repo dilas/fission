@@ -27,6 +27,10 @@ public class FeedService {
         return feedRepository.findOne(id);
     }
 
+    public List<Feed> findByIdIn(Long[] ids) {
+        return feedRepository.findByIdIn(ids);
+    }
+
     public Feed findWithGroups(Long id) {
         Feed feed = feedRepository.findOne(id);
         feed.getFeeds().size();
