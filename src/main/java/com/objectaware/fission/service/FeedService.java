@@ -2,11 +2,13 @@ package com.objectaware.fission.service;
 
 import com.objectaware.fission.model.Feed;
 import com.objectaware.fission.model.FeedType;
+import com.objectaware.fission.model.Message;
 import com.objectaware.fission.repository.FeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,12 +41,15 @@ public class FeedService {
 
     public Feed findByIdentifier(String identifier) {
         Feed feed = feedRepository.findByIdentifier(identifier);
-        feed.getMessages().size();
-        feed.getFeeds().size();
+
+        List<Message> messageList = new ArrayList<Message>();
+        messageList.addAll(feed.getMessages());
 
         for (Feed childFeed : feed.getFeeds()) {
-            childFeed.getMessages().size();
+            messageList.addAll(childFeed.getMessages());
         }
+
+        feed.setMessages(messageList);
 
         return feed;
     }
