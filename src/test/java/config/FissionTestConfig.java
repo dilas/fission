@@ -1,5 +1,7 @@
 package config;
 
+import javax.sql.DataSource;
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,8 +13,6 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan(basePackages = "com.objectaware.fission", excludeFilters = @ComponentScan.Filter(Configuration.class))
@@ -34,7 +34,6 @@ public class FissionTestConfig {
         return new HibernateExceptionTranslator();
     }
 
-
     @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
@@ -42,7 +41,10 @@ public class FissionTestConfig {
         return transactionManager;
     }
 
-
+    /**
+     * Create basic datasource.
+     * @return a datasource.
+     */
     @Bean
     public DataSource datasource() {
         BasicDataSource basicDataSource = new BasicDataSource();
