@@ -13,6 +13,7 @@
   </properties>
 
   <build>
+    <finalName>fission</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -97,25 +98,26 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>9.3-1101-jdbc41</version>
+      <version>9.3-1101-jdbc4</version>
+      <scope>provided</scope>
     </dependency>
     <!-- provided scope -->
     <dependency>
       <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
-      <version>1.0.0.Final</version>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <version>1.0.1.Final</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>4.3.5.Final</version>
+      <version>4.0.1.Final</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.3.5.Final</version>
+      <version>4.0.1.Final</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -218,6 +220,12 @@
                 <zipUrlInstaller>
                   <url>http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.tar.gz</url>
                 </zipUrlInstaller>
+                <dependencies>
+                  <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                  </dependency>
+                </dependencies>
               </container>
               <deployables>
                 <deployable>
