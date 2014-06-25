@@ -26,7 +26,6 @@ public class Feed implements Serializable {
     private String description;
     @NotEmpty
     private String identifier;
-    private String token;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable=false, insertable=false, columnDefinition = "timestamp default now()")
     private Date createdAt;
@@ -77,15 +76,11 @@ public class Feed implements Serializable {
     }
 
     public void setIdentifier(String identifier) {
+        if (identifier != null) {
+            identifier = identifier.toLowerCase();
+        }
+
         this.identifier = identifier;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public Date getCreatedAt() {
