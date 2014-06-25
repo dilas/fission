@@ -14,7 +14,9 @@ public class Message implements Serializable {
 
     @NotNull
     private String title;
+
     @NotNull
+    @Column(columnDefinition = "TEXT")
     private String body;
 
     @Temporal(TemporalType.TIMESTAMP)
