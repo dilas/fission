@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container" data-th-fragment="content">
+    <h3>Grupo de Feeds</h3>
+    <br/>
+    <form class="form-horizontal" role="form" data-th-action="@{/feed/update/group}" data-th-object="${feed}" method="post">
+
+        <input type="hidden" data-th-field="*{id}" />
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Feed</label>
+            <div class="col-sm-10">
+                <p class="form-control-static" data-th-text="*{name}">Feed</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Feeds Dispon&iacute;veis</label>
+            <div class="col-sm-10">
+                <div class="checkbox" data-th-each="feed : ${availableSimpleFeeds}">
+                    <label>
+                        <input type="checkbox" data-th-value="${feed.id}" data-th-field="*{selectedFeeds}" /> <th:block data-th-text="${feed.name}" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a class="btn btn-default" href="#" data-th-href="@{/feed}">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
