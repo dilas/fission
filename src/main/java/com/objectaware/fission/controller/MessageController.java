@@ -1,6 +1,6 @@
 package com.objectaware.fission.controller;
 
-import com.objectaware.fission.model.Feed;
+import com.objectaware.fission.model.FeedType;
 import com.objectaware.fission.model.Message;
 import com.objectaware.fission.service.FeedService;
 import com.objectaware.fission.service.MessageService;
@@ -9,7 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.Valid;
 
@@ -76,6 +79,6 @@ public class MessageController {
         if (id != null) {
             model.addAttribute("message", messageService.find(id));
         }
-        model.addAttribute("feedList", feedService.findAll());
+        model.addAttribute("feedList", feedService.findAll(FeedType.SIMPLE));
     }
 }
