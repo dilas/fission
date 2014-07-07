@@ -25,15 +25,25 @@
                     <a class="navbar-brand" href="#" data-th-href="@{/}">RSS Feed</a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a data-th-href="@{/feed}" href="#">Feed</a>
-                        </li>
-                        <li>
-                            <a data-th-href="@{/message}" href="#">Mensagem</a>
-                        </li>
-                    </ul>
+                <div sec:authorize="isAuthenticated()">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a data-th-href="@{/feed}" href="#">Feed</a>
+                            </li>
+                            <li>
+                                <a data-th-href="@{/message}" href="#">Mensagem</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#" data-th-text="${#authentication.name}">Usuario</a>
+                            </li>
+                            <li>
+                                <a data-th-href="@{/logout}" href="#">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <div data-th-replace="${view} :: content">

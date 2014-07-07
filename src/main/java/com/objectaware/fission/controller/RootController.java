@@ -14,7 +14,7 @@ public class RootController {
     @Autowired
     private FeedService feedService;
 
-    @RequestMapping(value="/", method=RequestMethod.GET)
+    @RequestMapping(value="/", method = RequestMethod.GET)
     public String index() {
         return "index";
     }
@@ -28,5 +28,15 @@ public class RootController {
         mav.addObject("messageList", feed.getMessages());
 
         return mav;
+    }
+
+    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/login-failed.html", method = RequestMethod.GET)
+    public String loginFailed() {
+        return "login";
     }
 }
