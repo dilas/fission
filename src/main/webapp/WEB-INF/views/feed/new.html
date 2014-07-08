@@ -2,7 +2,7 @@
 <html>
 <body>
     <div class="container" data-th-fragment="content">
-        <div data-th-replace="feed/form :: content (action=@{/feed}, labelForm='Novo Feed')" />
+        <div data-th-replace="feed/form :: content (action=@{/feed}, labelForm=#{feed.title.new})" />
     </div>
 </body>
 </html>

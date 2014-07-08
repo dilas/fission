@@ -2,7 +2,7 @@
 <html>
 <body>
 <div class="container" data-th-fragment="content">
-    <h3>Grupo de Feeds</h3>
+    <h3 data-th-text="#{feed.title.groupFeed}">Group's Feed</h3>
     <br/>
     <form class="form-horizontal" role="form" data-th-action="@{/feed/update/group}" data-th-object="${feed}" method="post">
 
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Feeds Dispon&iacute;veis</label>
+            <label class="col-sm-2 control-label" data-th-text="#{feed.availableFeeds}">Available Feeds</label>
             <div class="col-sm-10">
                 <div class="checkbox" data-th-each="feed : ${availableSimpleFeeds}">
                     <label>
@@ -30,8 +30,8 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a class="btn btn-default" href="#" data-th-href="@{/feed}">Cancelar</a>
+                <button type="submit" class="btn btn-primary" data-th-text="#{action.btn.save}">Save</button>
+                <a class="btn btn-default" href="#" data-th-href="@{/feed}" data-th-text="#{action.btn.cancel}">Cancel</a>
             </div>
         </div>
     </form>

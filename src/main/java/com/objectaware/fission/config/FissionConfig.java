@@ -2,9 +2,12 @@ package com.objectaware.fission.config;
 
 import com.objectaware.fission.web.ext.FeedGeneratorView;
 import com.objectaware.fission.web.ext.ThymeleafLayoutInterceptor;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.dao.support.PersistenceExceptionTranslator;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
@@ -13,10 +16,12 @@ import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring3.SpringTemplateEngine;
@@ -84,6 +89,20 @@ public class FissionConfig extends WebMvcConfigurerAdapter {
     @Bean
     public BeanNameViewResolver beanNameViewResolver() {
         return new BeanNameViewResolver();
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource rb = new ReloadableResourceBundleMessageSource();
+        rb.setDefaultEncoding("UTF-8");
+        rb.setBasename("/WEB-INF/i18n/messages");
+        rb.setCacheSeconds(5);
+        return rb;
+    }
+
+    @Bean
+    public LocaleResolver localeResolver() {
+        return new AcceptHeaderLocaleResolver();
     }
 
     @Bean

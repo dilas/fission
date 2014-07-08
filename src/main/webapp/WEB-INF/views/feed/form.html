@@ -6,7 +6,7 @@
     <br/>
     <form class="form-horizontal" role="form" data-th-action="${action}" data-th-object="${feed}" method="post">
         <ul data-th-if="${#fields.hasErrors('*')}">
-            <li data-th-each="e : ${#fields.detailedErrors()}" data-th-text="${e.fieldName + ' ' + e.message}" class="text-danger">Erro ao salvar dados</li>
+            <li data-th-each="e : ${#fields.detailedErrors()}" data-th-text="${e.fieldName + ' ' + e.message}" class="text-danger">The following error(s) occurred while saving changes</li>
         </ul>
 
         <br/>
@@ -14,51 +14,51 @@
         <input type="hidden" data-th-field="*{id}" />
 
         <div class="form-group">
-            <label for="inputfeedType" class="col-sm-2 control-label">Tipo</label>
+            <label for="inputfeedType" class="col-sm-2 control-label" data-th-text="#{feed.type}">Type</label>
             <div class="col-sm-4">
                 <select id="inputfeedType" class="form-control" data-th-field="*{feedType}">
                     <option data-th-each="feedType : ${feedTypeList}"
                             data-th-value="${feedType}"
-                            data-th-text="${feedType.name}">Selecione</option>
+                            data-th-text="${feedType.name}">Select</option>
                 </select>
             </div>
         </div>
         <div class="form-group" data-th-classappend="${#fields.hasErrors('name')}? has-error">
-            <label for="inputFeedNome" class="col-sm-2 control-label">Nome</label>
+            <label for="inputFeedName" class="col-sm-2 control-label" data-th-text="#{feed.name}">Name</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputFeedNome" placeholder="Nome" data-th-field="*{name}"/>
+                <input type="text" class="form-control" id="inputFeedName" placeholder="Name" data-th-field="*{name}" data-th-placeholder="#{feed.field.name}"/>
             </div>
         </div>
         <div class="form-group" data-th-classappend="${#fields.hasErrors('description')}? has-error">
-            <label for="inputFeedDescricao" class="col-sm-2 control-label">Descri&ccedil;&atilde;o</label>
+            <label for="inputFeedDescription" class="col-sm-2 control-label" data-th-text="#{feed.description}">Description</label>
             <div class="col-sm-6">
-                <textarea class="form-control" id="inputFeedDescricao" placeholder="Descri&ccedil;&atilde;o do feed" data-th-field="*{description}"></textarea>
+                <textarea class="form-control" id="inputFeedDescription" placeholder="Feed description" data-th-field="*{description}" data-th-placeholder="#{feed.field.description}"></textarea>
             </div>
         </div>
         <div class="form-group" data-th-classappend="${#fields.hasErrors('identifier')}? has-error">
-            <label for="inputFeedIdentificador" class="col-sm-2 control-label">Identificador</label>
+            <label for="inputFeedIdentifier" class="col-sm-2 control-label" data-th-text="#{feed.identifier}">Identifier</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputFeedIdentificador" placeholder="Identificador &uacute;nico" data-th-field="*{identifier}" />
+                <input type="text" class="form-control" id="inputFeedIdentifier" placeholder="Unique identifier" data-th-field="*{identifier}" data-th-placeholder="#{feed.field.identifier}"/>
             </div>
         </div>
         <div class="form-group" data-th-if="*{feedType.toString().equals('GROUP')}">
             <div class="col-sm-offset-2 col-sm-10">
-                <a class="btn btn-default" href="#" data-th-href="@{/feed/{feed.id}/group(feed.id=*{id})}">Grupo de Feeds</a>
+                <a class="btn btn-default" href="#" data-th-href="@{/feed/{feed.id}/group(feed.id=*{id})}" data-th-text="#{feed.btn.groupFeed}">Group's Feed</a>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" checked="checked" data-th-field="*{active}" /> Ativo
+                        <input type="checkbox" checked="checked" data-th-field="*{active}" /> <th:block data-th-text="#{checkbox.active}" />
                     </label>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a class="btn btn-default" href="#" data-th-href="@{/feed}">Cancelar</a>
+                <button type="submit" class="btn btn-primary" data-th-text="#{action.btn.save}">Save</button>
+                <a class="btn btn-default" href="#" data-th-href="@{/feed}" data-th-text="#{action.btn.cancel}">Cancel</a>
             </div>
         </div>
     </form>

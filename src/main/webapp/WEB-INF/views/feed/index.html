@@ -4,17 +4,17 @@
     <div class="container" data-th-fragment="content">
         <div class="row clearfix">
             <div class="col-md-10 column">
-                <h1>Feeds</h1>
+                <h1 data-th-text="#{feed.title}">Feeds</h1>
 
                 <div data-th-unless="${#lists.isEmpty(feedList)}">
                     <table class="table">
                         <thead>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Identificador</th>
-                        <th>Tipo</th>
-                        <th>Feed</th>
-                        <th>A&ccedil;&atilde;o</th>
+                        <th data-th-text="#{feed.id}">Id</th>
+                        <th data-th-text="#{feed.name}">Name</th>
+                        <th data-th-text="#{feed.identifier}">Identifier</th>
+                        <th data-th-text="#{feed.type}">Type</th>
+                        <th data-th-text="#{feed.feed}">Feed</th>
+                        <th data-th-text="#{action.column}">Actions</th>
                         </thead>
                         <tbody>
                         <tr data-th-each="feed : ${feedList}">
@@ -24,8 +24,8 @@
                             <td data-th-text="${feed.feedType.name}">Tipo</td>
                             <td><a href="#" data-th-href="@{/rss/{identifier}.xml(identifier=${feed.identifier})}"><img src="#" data-th-src="@{/static/img/feed_icon.png}" /></a></td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/feed/edit/{feed.id}(feed.id=${feed.id})}">Alterar</a>
-                                <a href="#" class="btn btn-xs btn-danger removeLink" data-th-attr="data-remove-id=${feed.id}, data-remove-uri=@{/feed}">Apagar</a>
+                                <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/feed/edit/{feed.id}(feed.id=${feed.id})}" data-th-text="#{action.btn.edit}">Edit</a>
+                                <a href="#" class="btn btn-xs btn-danger removeLink" data-th-attr="data-remove-id=${feed.id}, data-remove-uri=@{/feed}" data-th-text="#{action.btn.delete}">Delete</a>
                             </td>
                         </tr>
                         </tbody>
@@ -34,7 +34,7 @@
 
                 <br />
 
-                <a id="new-feed" class="btn btn-primary" href="new.html" data-th-href="@{feed/new}">Novo Feed</a>
+                <a id="new-feed" class="btn btn-primary" href="new.html" data-th-href="@{feed/new}" data-th-text="#{feed.btn.newFeed}">New Feed</a>
             </div>
         </div>
     </div>

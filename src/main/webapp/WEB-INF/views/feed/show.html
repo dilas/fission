@@ -5,35 +5,35 @@
     <h1>Feed</h1>
     <br/>
     <div data-th-object="${feed}">
-        <p><strong>Id</strong></p>
+        <p><strong data-th-text="#{feed.id}">Id</strong></p>
         <p><span data-th-text="*{id}">Id</span></p>
 
-        <p><strong>Tipo do Feed</strong></p>
-        <p><span data-th-text="*{feedType.name}">Tipo do Feed</span></p>
+        <p><strong data-th-text="#{feed.type}">Feed Type</strong></p>
+        <p><span data-th-text="*{feedType.name}">Feed Type</span></p>
 
-        <p><strong>Nome</strong></p>
-        <p><span data-th-text="*{name}">Nome Feed</span></p>
+        <p><strong data-th-text="#{feed.name}">Feed Name</strong></p>
+        <p><span data-th-text="*{name}">Feed Name</span></p>
 
-        <p><strong>Descri&ccedil;&atilde;o</strong></p>
-        <p><span data-th-text="*{description}">Descri&ccedil;&atilde;o Feed</span></p>
+        <p><strong data-th-text="#{feed.description}">Description</strong></p>
+        <p><span data-th-text="*{description}">Description</span></p>
 
-        <p><strong>Identificador</strong></p>
-        <p><span data-th-text="*{identifier}">Identificador Feed</span></p>
+        <p><strong data-th-text="#{feed.identifier}">Identifier</strong></p>
+        <p><span data-th-text="*{identifier}">Identifier</span></p>
 
-        <p><strong>Ativo</strong></p>
-        <p><span data-th-text="*{active}">Ativo</span></p>
+        <p><strong data-th-text="#{active.label}">Active</strong></p>
+        <p><span data-th-text="*{active}">Active</span></p>
 
-        <p><strong>Criado</strong></p>
-        <p><span data-th-text="*{createdAt}">Criado</span></p>
+        <p><strong data-th-text="#{createdAt.label}">Created At</strong></p>
+        <p><span data-th-text="*{createdAt}">Created At</span></p>
 
-        <p><strong>Alterado</strong></p>
-        <p><span data-th-text="*{updatedAt}">Alterado</span></p>
+        <p><strong data-th-text="#{updatedAt.label}">Updated At</strong></p>
+        <p><span data-th-text="*{updatedAt}">Updated At</span></p>
     </div>
     <br/>
     <div>
         <a class="btn btn-primary" href="#" data-th-href="@{/feed}">Feeds</a>
-        <a class="btn btn-primary" href="#" data-th-href="@{/feed/edit/{feed.id}(feed.id=${feed.id})}">Alterar</a>
-        <a class="btn btn-danger" href="#">Apagar</a>
+        <a class="btn btn-primary" href="#" data-th-href="@{/feed/edit/{feed.id}(feed.id=${feed.id})}" data-th-text="#{action.btn.edit}">Edit</a>
+        <a class="btn btn-danger" href="#" data-th-text="#{action.btn.delete}">Delete</a>
     </div>
 </div>
 </body>

@@ -29,25 +29,26 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a data-th-href="@{/feed}" href="#">Feed</a>
+                                <a data-th-href="@{/feed}" href="#" data-th-text="#{navBar.menu.feed}">Feed</a>
                             </li>
                             <li>
-                                <a data-th-href="@{/message}" href="#">Mensagem</a>
+                                <a data-th-href="@{/message}" href="#" data-th-text="#{navBar.menu.message}">Message</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#" data-th-text="${#authentication.name}">Usuario</a>
+                                <a href="#" data-th-text="${#authentication.name}">User</a>
                             </li>
                             <li>
-                                <a data-th-href="@{/logout}" href="#">Sair</a>
+                                <a data-th-href="@{/logout}" href="#" data-th-text="#{navBar.menu.logout}">Sign out</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
             <div data-th-replace="${view} :: content">
-                Conteudo não encontrado
+                Content not found
             </div>
         </div>
     </div>
