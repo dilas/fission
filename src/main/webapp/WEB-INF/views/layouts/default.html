@@ -2,6 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="_csrf_header" data-th-content="${_csrf.headerName}"/>
+  <meta name="_csrf" data-th-content="${_csrf.token}"/>
   <title>Fission</title>
   <link rel="stylesheet" data-th-href="@{/static/css/bootstrap.css}" href="static/css/bootstrap.css" />
   <script data-th-src="@{/static/js/jquery.js}" src="static/js/jquery.js"></script>
