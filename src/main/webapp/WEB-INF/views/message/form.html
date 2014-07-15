@@ -2,7 +2,7 @@
 <html>
 <body>
 <div class="container" data-th-fragment="content">
-    <h3 data-th-text="${labelForm}">Mensagem</h3>
+    <h3 data-th-text="${labelForm}">Message</h3>
     <br/>
     <form class="form-horizontal" role="form" data-th-action="${action}" data-th-object="${message}" method="post">
         <ul data-th-if="${#fields.hasErrors('*')}">
@@ -14,33 +14,33 @@
         <input type="hidden" data-th-field="*{id}" />
 
         <div class="form-group" data-th-classappend="${#fields.hasErrors('feed')}? has-error">
-            <label for="inputmessageFeed" class="col-sm-2 control-label">Feed</label>
+            <label for="inputFeedMessage" class="col-sm-2 control-label" data-th-text="#{message.field.feed}">Feed</label>
             <div class="col-sm-4">
-                <select id="inputmessageFeed" class="form-control" data-th-field="*{feed.id}">
+                <select id="inputFeedMessage" class="form-control" data-th-field="*{feed.id}">
                     <option data-th-each="feed : ${feedList}"
                             data-th-value="${feed.id}"
-                            data-th-text="${feed.name}">Selecione</option>
+                            data-th-text="${feed.name}">Select</option>
                 </select>
             </div>
         </div>
         <div class="form-group" data-th-classappend="${#fields.hasErrors('title')}? has-error">
-            <label for="inputmessageTitulo" class="col-sm-2 control-label">T&iacute;tulo</label>
+            <label for="inputMessageTitle" class="col-sm-2 control-label" data-th-text="#{message.field.title}">Title</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputmessageTitulo" placeholder="T&iacute;tulo da Mensagem" data-th-field="*{title}"/>
+                <input type="text" class="form-control" id="inputMessageTitle" placeholder="Message Title" data-th-field="*{title}" data-th-placeholder="#{message.placeholder.title}"/>
             </div>
         </div>
 
         <div class="form-group" data-th-classappend="${#fields.hasErrors('body')}? has-error">
-            <label for="inputmessageMensagem" class="col-sm-2 control-label">Mensagem</label>
+            <label for="inputMessageBody" class="col-sm-2 control-label" data-th-text="#{message.field.body}">Message</label>
             <div class="col-sm-6">
-                <textarea class="form-control" id="inputmessageMensagem" placeholder="Mensagem" data-th-field="*{body}" rows="8"></textarea>
+                <textarea class="form-control" id="inputMessageBody" placeholder="Message" data-th-field="*{body}" rows="8" data-th-placeholder="#{message.placeholder.body}"></textarea>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <a class="btn btn-default" href="#" data-th-href="@{/message}">Cancelar</a>
+                <button type="submit" class="btn btn-primary" data-th-text="#{action.btn.save}">Save</button>
+                <a class="btn btn-default" href="#" data-th-href="@{/message}" data-th-text="#{action.btn.cancel}">Cancel</a>
             </div>
         </div>
     </form>

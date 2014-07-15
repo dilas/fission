@@ -4,24 +4,24 @@
     <div class="container" data-th-fragment="content">
         <div class="row clearfix">
             <div class="col-md-10 column">
-                <h1>Mensagens</h1>
+                <h1 data-th-text="#{message.title}">Messages</h1>
 
                 <div data-th-unless="${#lists.isEmpty(messageList)}">
                     <table class="table">
                         <thead>
-                        <th>Id</th>
-                        <th>T&iacute;tulo</th>
-                        <th>Feed</th>
-                        <th>A&ccedil;&atilde;o</th>
+                        <th data-th-text="#{message.field.id}">Id</th>
+                        <th data-th-text="#{message.field.title}">Title</th>
+                        <th data-th-text="#{message.field.feed}">Feed</th>
+                        <th data-th-text="#{action.column.label}">Actions</th>
                         </thead>
                         <tbody>
                         <tr data-th-each="message : ${messageList}">
                             <td data-th-text="${message.id}">1</td>
-                            <td><a href="#" data-th-href="@{/message/{message.id}(message.id=${message.id})}" data-th-text="${message.title}">T&iacute;tulo</a></td>
+                            <td><a href="#" data-th-href="@{/message/{message.id}(message.id=${message.id})}" data-th-text="${message.title}">Title</a></td>
                             <td><a href="#" data-th-href="@{/feed/{feed.id}/messages(feed.id=${message.feed.identifier})}" data-th-text="${message.feed.name}">Feed</a></td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/message/edit/{message.id}(message.id=${message.id})}">Alterar</a>
-                                <a href="#" class="btn btn-xs btn-danger removeLink" data-th-attr="data-remove-id=${message.id}, data-remove-uri=@{/message}">Apagar</a>
+                                <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/message/edit/{message.id}(message.id=${message.id})}" data-th-text="#{action.btn.edit}">Edit</a>
+                                <a href="#" class="btn btn-xs btn-danger removeLink" data-th-attr="data-remove-id=${message.id}, data-remove-uri=@{/message}" data-th-text="#{action.btn.delete}">Delete</a>
                             </td>
                         </tr>
                         </tbody>
@@ -30,7 +30,7 @@
 
                 <br />
 
-                <a class="btn btn-primary" href="new.html" data-th-href="@{message/new}">Nova Mensagem</a>
+                <a class="btn btn-primary" href="new.html" data-th-href="@{message/new}" data-th-text="#{message.btn.newMessage}">New Message</a>
             </div>
         </div>
     </div>

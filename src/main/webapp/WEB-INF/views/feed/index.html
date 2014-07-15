@@ -9,19 +9,19 @@
                 <div data-th-unless="${#lists.isEmpty(feedList)}">
                     <table class="table">
                         <thead>
-                        <th data-th-text="#{feed.id}">Id</th>
-                        <th data-th-text="#{feed.name}">Name</th>
-                        <th data-th-text="#{feed.identifier}">Identifier</th>
-                        <th data-th-text="#{feed.type}">Type</th>
-                        <th data-th-text="#{feed.feed}">Feed</th>
-                        <th data-th-text="#{action.column}">Actions</th>
+                        <th data-th-text="#{feed.field.id}">Id</th>
+                        <th data-th-text="#{feed.field.name}">Name</th>
+                        <th data-th-text="#{feed.field.identifier}">Identifier</th>
+                        <th data-th-text="#{feed.field.type}">Type</th>
+                        <th data-th-text="#{feed.field.feed}">Feed</th>
+                        <th data-th-text="#{action.column.label}">Actions</th>
                         </thead>
                         <tbody>
                         <tr data-th-each="feed : ${feedList}">
                             <td data-th-text="${feed.id}">1</td>
                             <td><a href="#" data-th-href="@{/feed/{feed.id}(feed.id=${feed.id})}" data-th-text="${feed.name}">Feed</a></td>
                             <td data-th-text="${feed.identifier}">identifier</td>
-                            <td data-th-text="${feed.feedType.name}">Tipo</td>
+                            <td data-th-text="${feed.feedType.name}">Type</td>
                             <td><a href="#" data-th-href="@{/rss/{identifier}.xml(identifier=${feed.identifier})}"><img src="#" data-th-src="@{/static/img/feed_icon.png}" /></a></td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-xs" data-th-href="@{/feed/edit/{feed.id}(feed.id=${feed.id})}" data-th-text="#{action.btn.edit}">Edit</a>

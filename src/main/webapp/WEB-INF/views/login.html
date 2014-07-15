@@ -3,34 +3,34 @@
 <body>
 <div class="container" data-th-fragment="content">
     <div class="row clearfix">
-        <h1>Login</h1>
+        <h1 data-th-text="#{login.title}">Login</h1>
 
         <form class="form-horizontal" role="form" data-th-action="@{/login}" method="post">
             <br/>
 
             <ul data-th-if="${param.error}">
-                <li>Usu&aacute;rio ou senha inv&aacute;lidos.</li>
+                <li><th:block data-th-text="#{login.message.invalidUserPassword}" /></li>
             </ul>
 
             <br/>
 
             <div class="form-group">
-                <label for="inputUsername" class="col-sm-2 control-label" data-th-text="#{login.username}">User</label>
+                <label for="inputUsername" class="col-sm-2 control-label" data-th-text="#{login.field.username}">User</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputUsername" placeholder="User" name="username" data-th-placeholder="#{login.field.username}"/>
+                    <input type="text" class="form-control" id="inputUsername" placeholder="User" name="username" data-th-placeholder="#{login.placeholder.username}"/>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label" data-th-text="#{login.password}">Senha</label>
+                <label for="inputPassword" class="col-sm-2 control-label" data-th-text="#{login.field.password}">Senha</label>
                 <div class="col-sm-4">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" data-th-placeholder="#{login.field.password}"/>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" data-th-placeholder="#{login.placeholder.password}"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary" data-th-text="#{login.signin}">Log In</button>
+                    <button type="submit" class="btn btn-primary" data-th-text="#{login.btn.signin}">Log In</button>
                 </div>
             </div>
         </form>

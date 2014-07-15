@@ -2,7 +2,7 @@
 <html>
 <body>
     <div class="container" data-th-fragment="content">
-        <div data-th-replace="message/form :: content (action=@{/message/update}, labelForm='Alterar Mensagem')" />
+        <div data-th-replace="message/form :: content (action=@{/message/update}, labelForm=#{message.title.edit})" />
     </div>
 </body>
 </html>

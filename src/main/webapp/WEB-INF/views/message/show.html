@@ -8,20 +8,20 @@
         <p><strong>Id</strong></p>
         <p><span data-th-text="*{id}">Id</span></p>
 
-        <p><strong>Feed</strong></p>
+        <p><strong data-th-text="#{message.field.feed}">Feed</strong></p>
         <p><span data-th-text="*{feed.name}">Feed</span></p>
 
-        <p><strong>T&iacute;tulo</strong></p>
-        <p><span data-th-text="*{title}">T&iacute;tulo da Mensagem</span></p>
+        <p><strong data-th-text="#{message.field.title}">Message Title</strong></p>
+        <p><span data-th-text="*{title}">Message Title</span></p>
 
-        <p><strong>Mensagem</strong></p>
-        <p><span data-th-utext="*{body}">Mensagem</span></p>
+        <p><strong data-th-text="#{message.field.body}">Message Body</strong></p>
+        <p><span data-th-utext="*{body}">Message Body</span></p>
     </div>
     <br/>
     <div>
-        <a class="btn btn-primary" href="#" data-th-href="@{/message}">Mensagens</a>
-        <a class="btn btn-primary" href="#" data-th-href="@{/message/edit/{message.id}(message.id=${message.id})}">Alterar</a>
-        <a class="btn btn-danger" href="#">Apagar</a>
+        <a class="btn btn-primary" href="#" data-th-href="@{/message}" data-th-text="#{message.title}">Messages</a>
+        <a class="btn btn-primary" href="#" data-th-href="@{/message/edit/{message.id}(message.id=${message.id})}" data-th-text="#{action.btn.edit}">Edit</a>
+        <a class="btn btn-danger" href="#" data-th-text="#{action.btn.delete}">Delete</a>
     </div>
 </div>
 </body>
