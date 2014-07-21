@@ -17,6 +17,9 @@ public class FeedService {
     @Autowired
     private FeedRepository feedRepository;
 
+    @Autowired
+    private MessageService messageService;
+
     public Iterable<Feed> findAll() {
         return feedRepository.findAll();
     }
@@ -43,7 +46,7 @@ public class FeedService {
         Feed feed = feedRepository.findByIdentifier(identifier);
 
         List<Message> messageList = new ArrayList<Message>();
-        messageList.addAll(feed.getMessages());
+        messageList.addAll(messageService.findLastMessagesByFeed(feed));
 
         for (Feed childFeed : feed.getFeeds()) {
             messageList.addAll(childFeed.getMessages());

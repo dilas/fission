@@ -3,6 +3,7 @@ package com.objectaware.fission.controller;
 import com.objectaware.fission.model.Feed;
 import com.objectaware.fission.service.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class RootController {
         return "index";
     }
 
-    @RequestMapping("/rss/{identifier}.xml")
+    @RequestMapping(value = "/rss/{identifier}.xml")
     public ModelAndView feed(@PathVariable String identifier) {
         Feed feed = feedService.findByIdentifier(identifier);
 
