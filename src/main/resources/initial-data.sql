@@ -14,7 +14,17 @@ INSERT INTO message (id, feed_id, title, body) VALUES (1, 4, 'Titulo Mensagem 1'
 INSERT INTO message (id, feed_id, title, body) VALUES (2, 5, 'Titulo Mensagem 2', 'Mensagem 2');
 INSERT INTO message (id, feed_id, title, body) VALUES (3, 6, 'Titulo Mensagem 3', 'Mensagem 3');
 
-INSERT INTO message (id, feed_id, title, body) VALUES (4, 7, 'Nova versao', 'Versao nova do aplicativo');
-
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (4, 7, 'Nova versao', 'Versao nova do aplicativo', '2014-01-01 01:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (5, 7, 'Aplicativo A', 'Versao nova do aplicativo', '2014-02-10 19:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (6, 7, 'Aplicativo B', 'Versao nova do aplicativo', '2014-02-10 21:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (7, 7, 'Aplicativo C', 'Versao nova do aplicativo', '2014-02-11 11:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (8, 7, 'Aplicativo D', 'Versao nova do aplicativo', '2014-03-06 12:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (9, 7, 'Aplicativo E', 'Versao nova do aplicativo', '2014-03-12 09:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (10, 7, 'Aplicativo F', 'Versao nova do aplicativo', '2014-03-13 18:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (11, 7, 'Aplicativo G', 'Versao nova do aplicativo', '2014-04-09 21:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (12, 7, 'Aplicativo H', 'Versao nova do aplicativo', '2014-05-17 09:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (13, 7, 'Aplicativo I', 'Versao nova do aplicativo', '2014-06-22 20:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (14, 7, 'Aplicativo J', 'Versao nova do aplicativo', '2014-07-10 19:00:00');
+INSERT INTO message (id, feed_id, title, body, createdAt) VALUES (15, 7, 'Aplicativo L', 'Versao nova do aplicativo', '2014-07-20 11:00:00');
 
 ALTER SEQUENCE hibernate_sequence RESTART WITH 100;
